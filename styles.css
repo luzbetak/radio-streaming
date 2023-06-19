@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    font-size: 24px;    /* Increase the base font size */
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+td {
+    width:50%;		
+    padding: 20px;
+    border: 2px solid #5c6bc0;
+    background-color: #e8eaf6;
+}
+a {
+    text-decoration: none;
+    color: #3949ab;
+    font-weight: bold;
+    font-size: 36px;    /* Increase the font size for links */
+}
+tr:nth-child(even) {
+    background-color: #c5cae9;
+}
+tr:nth-child(odd) {
+    background-color: #dde1f2;    /* Slightly lighter shade for odd rows */
+}
+

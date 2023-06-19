@@ -1,0 +1,109 @@
+#!/usr/bin/env python3
+import os, time
+import subprocess
+from urllib.parse import parse_qs
+
+print("Content-Type: text/html")    # HTML is following
+print()                             # blank line, end of headers
+
+# Parse the query string
+query = parse_qs(os.environ.get("QUERY_STRING", ""))
+
+if "action" in query:
+
+    action = query["action"][0]
+
+    if action == "start":
+        subprocess.run(["mpc", "play"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        time.sleep(1)
+        print("<p>Music Player Started!</p>")
+
+    elif action == "stop":
+        subprocess.run(["mpc", "stop"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        time.sleep(1)
+        print("<p>Music Player Stopped!</p>")
+
+    elif action == "hitradio":
+        subprocess.run(["mpc", "clear"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run(["mpc", "add", "http://orf-live.ors-shoutcast.at/oe3-q2a"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run(["mpc", "play"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        time.sleep(1)
+        print("<p>Hitradio O3 Started!</p>")
+
+    elif action == "krone":
+        subprocess.run(["mpc", "clear"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run(["mpc", "add", "http://raj.krone.at/kronehit-ultra-hd.aac"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run(["mpc", "play"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        time.sleep(1)
+        print("<p>Krone Hit Started!</p>")
+
+    elif action == "viva":
+        subprocess.run(["mpc", "clear"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run(["mpc", "add", "https://stream.sepia.sk:8000/viva320.mp3"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run(["mpc", "play"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        time.sleep(1)
+        print("<p>Viva Slovakia Started!</p>")
+
+    elif action == "fun":
+        subprocess.run(["mpc", "clear"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run(["mpc", "add", "http://stream.funradio.sk:8000/fun128.mp3"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run(["mpc", "play"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        time.sleep(1)
+        print("<p>Fun Radio Slovakia Started!</p>")
+
+    elif action == "psyradio":
+        subprocess.run(["mpc", "clear"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run(["mpc", "add", "http://komplex2.psyradio.org:8010/stream/1/"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run(["mpc", "play"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        time.sleep(1)
+        print("<p>PSY Radio Started!</p>")
+
+    elif action == "psyndora":
+        subprocess.run(["mpc", "clear"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run(["mpc", "add", "https://cast.magicstreams.gr:9111/stream/1/"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run(["mpc", "play"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        time.sleep(1)
+        print("<p>Psyndora Psytrance Started!</p>")
+
+    elif action == "bucharest":
+        subprocess.run(["mpc", "clear"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run(["mpc", "add", "http://62.210.105.16:7000/stream/1/"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run(["mpc", "play"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        time.sleep(1)
+        print("<p>Bucharest - Deep House Started!</p>")
+
+    elif action == "nature":
+        subprocess.run(["mpc", "clear"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run(["mpc", "add", "http://mpc2.mediacp.eu:8376/stream/1/"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run(["mpc", "play"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        time.sleep(1)
+        print("<p>Ambient - Nature Radio Sleep</p>")
+
+    elif action == "chillout":
+        subprocess.run(["mpc", "clear"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run(["mpc", "add", "http://2.58.194.54:8840/stream/1/"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run(["mpc", "play"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        time.sleep(1)
+        print("<p>Ambient - Nature Radio Sleep</p>")
+
+
+print("""
+<html>
+<body>
+    <a href="http://192.168.1.229"><h1>Living Room Radio</h1></a>
+    <a href="?action=start"><h2>Start Music Player</h2></a><p>
+    <a href="?action=stop"><h2>Stop Music Player</h2></a><p>
+    <hr>
+    <a href="?action=hitradio"><h2>Austria - Hitradio O3</h2></a>
+    <a href="?action=krone"><h2>Austria - Krone Hit</h2></a>
+    <a href="?action=viva"><h2>Slovakia - Viva</h2></a>
+    <a href="?action=fun"><h2>Slovakia - Fun Radio </h2></a>
+    <a href="?action=psyradio"><h2>PSY Radio</h2></a>
+    <a href="?action=psyndora"><h2>Psyndora Psytrance</h2></a>
+    <a href="?action=bucharest"><h2>Bucharest - Deep House</h2></a>
+    <a href="?action=nature"><h2>Ambient - Nature Radio Sleep</h2></a>
+    <a href="?action=chillout"><h2>Ambient - Chillout Essentials</h2></a>
+</body>
+</html>
+""")
+
