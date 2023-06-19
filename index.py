@@ -58,7 +58,7 @@ menu = [
     {"link": "?action=fun", "name": "Slovakia - Fun Radio"},
     {"link": "?action=psyradio", "name": "PSY Radio"},
     {"link": "?action=psyndora", "name": "Psyndora Psytrance"},
-    {"link": "?action=bucharest", "name": "Bucharest - Deep House"},
+    {"link": "?action=bucharest", "name": "Bucharest Deep House"},
     {"link": "?action=nature", "name": "Ambient Nature Sleep"},
     {"link": "?action=chillout", "name": "Ambient Chillout Essen"},
 ]
