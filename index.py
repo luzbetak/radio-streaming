@@ -39,7 +39,7 @@ if "action" in query:
     elif action == "fun":
         radio_action("http://stream.funradio.sk:8000/fun128.mp3", "Fun Radio Slovakia")
     elif action == "jemne":
-        radio_action("https://stream.bauermedia.sk/melody-hi.mp3", "Slovakia Rádio Jemné")
+        radio_action("https://stream.bauermedia.sk/melody-hi.mp3", "Slovakia Radio Jemne")
     elif action == "psyradio":
         radio_action("http://komplex2.psyradio.org:8010/stream/1/", "PSY Radio")
     elif action == "psyndora":
@@ -58,7 +58,7 @@ menu = [
     {"link": "?action=krone", "name": "Austria Krone Hit"},
     {"link": "?action=viva", "name": "Slovakia Viva"},
     {"link": "?action=fun", "name": "Slovakia Fun Radio"},
-    {"link": "?action=jemne", "name": "Slovakia Rádio Jemné"},
+    {"link": "?action=jemne", "name": "Slovakia Radio Jemne"},
     {"link": "?action=psyradio", "name": "PSY Radio"},
     {"link": "?action=psyndora", "name": "Psyndora Psytrance"},
     {"link": "?action=bucharest", "name": "Bucharest Deep House"},
