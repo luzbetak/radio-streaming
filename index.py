@@ -1,7 +1,19 @@
 #!/usr/bin/env python3
 import os, time
 import subprocess
+import socket
 from urllib.parse import parse_qs
+
+
+def get_ip_address():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    try:
+        s.connect(('8.8.8.8', 80))
+        IP = s.getsockname()[0]
+    finally:
+        s.close()
+    return IP
+
 
 def radio_action(url, name):
     subprocess.run(["mpc", "clear"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -46,11 +58,11 @@ menu = [
     {"link": "?action=start", "name": "Start Music Player"},
     {"link": "?action=stop", "name": "Stop Music Player"},
     {"link": "?action=hitradio", "name": "Austria Hitradio O3"},
-    {"link": "?action=krone", "name": "Austria Krone Hit"},
     {"link": "?action=viva", "name": "Slovakia Viva"},
+    {"link": "?action=krone", "name": "Austria Krone Hit"},
     {"link": "?action=fun", "name": "Slovakia Fun Radio"},
-    {"link": "?action=jemne", "name": "Slovakia Radio Jemne"},
     {"link": "?action=psyradio", "name": "PSY Radio"},
+    {"link": "?action=jemne", "name": "Slovakia Radio Jemne"},
     {"link": "?action=psyndora", "name": "Psyndora Psytrance"},
     {"link": "?action=bucharest", "name": "Bucharest Deep House"},
     {"link": "?action=nature", "name": "Ambient Nature Sleep"},
@@ -66,8 +78,9 @@ print(f"""
     </style>
 </head>
 <body>
-    <table><tr><td align=center colspan=2><a href="http://192.168.1.229">Living Room Radio</a></td></tr>
+    <table><tr><td align=center colspan=2><a href="http://{get_ip_address()}">{get_ip_address()}</a></td></tr>
 """)
+
 
 for i in range(0, len(menu), 2):
     print('<tr>')
