@@ -45,7 +45,6 @@ if "action" in query:
 menu = [
     {"link": "?action=start", "name": "Start Music Player"},
     {"link": "?action=stop", "name": "Stop Music Player"},
-    {"link": "?action=mozart", "name": "Classic Mozart"},
     {"link": "?action=hitradio", "name": "Austria Hitradio O3"},
     {"link": "?action=krone", "name": "Austria Krone Hit"},
     {"link": "?action=viva", "name": "Slovakia Viva"},
@@ -56,6 +55,7 @@ menu = [
     {"link": "?action=bucharest", "name": "Bucharest Deep House"},
     {"link": "?action=nature", "name": "Ambient Nature Sleep"},
     {"link": "?action=chillout", "name": "Ambient Chillout Essen"},
+    {"link": "?action=mozart", "name": "Classic Mozart"},
 ]
 
 print(f"""
