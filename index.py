@@ -44,6 +44,7 @@ if "action" in query:
         print("<p>Music Player Stopped!</p>")
     elif action == "hitradio": radio_action("http://orf-live.ors-shoutcast.at/oe3-q2a", "Hitradio O3")
     elif action == "krone": radio_action("http://raj.krone.at/kronehit-ultra-hd.aac", "Krone Hit")
+    elif action == "antenne": radio_action("https://mp3channels.rockantenne.at/rockantenne-oesterreich ", "Austria Rock Antenne")
     elif action == "viva": radio_action("https://stream.sepia.sk:8000/viva320.mp3", "Viva Slovakia")
     elif action == "fun": radio_action("http://stream.funradio.sk:8000/fun128.mp3", "Fun Radio Slovakia")
     elif action == "jemne": radio_action("https://stream.bauermedia.sk/melody-hi.mp3", "Slovakia Radio Jemne")
@@ -57,10 +58,12 @@ if "action" in query:
 menu = [
     {"link": "?action=start", "name": "Start Music Player"},
     {"link": "?action=stop", "name": "Stop Music Player"},
+
     {"link": "?action=hitradio", "name": "Austria Hitradio O3"},
     {"link": "?action=viva", "name": "Slovakia Viva"},
     {"link": "?action=krone", "name": "Austria Krone Hit"},
     {"link": "?action=fun", "name": "Slovakia Fun Radio"},
+    {"link": "?action=antenne", "name": "Austria Rock Antenne"},
     {"link": "?action=psyradio", "name": "PSY Radio"},
     {"link": "?action=jemne", "name": "Slovakia Radio Jemne"},
     {"link": "?action=psyndora", "name": "Psyndora Psytrance"},
